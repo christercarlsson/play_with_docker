@@ -8,7 +8,6 @@ COPY ./src/tinywebapp.csproj .
 RUN dotnet restore
 
 COPY ./src .
-RUN ls -laR
 
 RUN dotnet build
 
@@ -19,6 +18,5 @@ FROM microsoft/aspnetcore:2 AS worker
 WORKDIR /app
 
 COPY --from=builder /publish .
-RUN ls -laR
 
 ENTRYPOINT [ "dotnet", "tinywebapp.dll" ]
