@@ -19,8 +19,13 @@ namespace tinywebapp.Pages
         }
         public void OnGet()
         {
+            try {
             var contacts = Task.Run( () => _repository.GetContacts());
             Contact = contacts.Result.FirstOrDefault();
+            }
+            catch {
+                RedirectToPage("Error.cshtml");
+            }
         }
     }
 }

@@ -10,10 +10,10 @@
         <div class="thumbnail">
             <img src=@Model.Contact.Picture.Large alt="medium">
             <div class="caption">
-                <h3>@Model.Contact.Name.First @Model.Contact.Name.Last</h3>
+                <h3>@StringExtensions.FirstUpper(@Model.Contact.Name.First) @StringExtensions.FirstUpper(@Model.Contact.Name.Last)</h3>
                 <address>
-                    @Model.Contact.Location.Street<br />
-                    @Model.Contact.Location.City, @Model.Contact.Nat @Model.Contact.Location.Postcode<br />
+                    @StringExtensions.FirstUpper(@Model.Contact.Location.Street)<br />
+                     @Model.Contact.Location.Postcode @StringExtensions.FirstUpper(@Model.Contact.Location.City), @Model.Contact.Nat<br />
                     <abbr title="Phone">P:</abbr>
                     @Model.Contact.Cell
                     </address>
