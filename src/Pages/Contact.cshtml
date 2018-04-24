@@ -6,14 +6,18 @@
 <h2>@ViewData["Title"]</h2>
 <h3>@Model.Message</h3>
 
+<h2>@Model.Contact.Name.First @Model.Contact.Name.Last</h2>
+
+<img src=@Model.Contact.Picture.Large alt="medium" />
+
 <address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
+    @Model.Contact.Location.Street<br />
+    @Model.Contact.Location.City, @Model.Contact.Nat @Model.Contact.Location.Postcode<br />
     <abbr title="Phone">P:</abbr>
-    425.555.0100
+    @Model.Contact.Cell
 </address>
 
 <address>
-    <strong>Support:</strong> <a href="mailto:Support@example.com">Support@example.com</a><br />
+    <strong>Support:</strong> <a href="mailto:@Model.Contact.Email">@Model.Contact.Email</a><br />
     <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
 </address>
