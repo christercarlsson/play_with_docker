@@ -5,18 +5,23 @@
 }
 <h2>@ViewData["Title"]</h2>
 
-<h1>@Model.Contact.Name.First @Model.Contact.Name.Last</h1>
-
-<img src=@Model.Contact.Picture.Large alt="medium" />
-
-<address>
-    @Model.Contact.Location.Street<br />
-    @Model.Contact.Location.City, @Model.Contact.Nat @Model.Contact.Location.Postcode<br />
-    <abbr title="Phone">P:</abbr>
-    @Model.Contact.Cell
-</address>
-
-<address>
-    <strong>Support:</strong> <a href="mailto:@Model.Contact.Email">@Model.Contact.Email</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-</address>
+<div class="row">
+    <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+            <img src=@Model.Contact.Picture.Large alt="medium">
+            <div class="caption">
+                <h3>@Model.Contact.Name.First @Model.Contact.Name.Last</h3>
+                <address>
+                    @Model.Contact.Location.Street<br />
+                    @Model.Contact.Location.City, @Model.Contact.Nat @Model.Contact.Location.Postcode<br />
+                    <abbr title="Phone">P:</abbr>
+                    @Model.Contact.Cell
+                    </address>
+                    <p>
+                        <a href="mailto:@Model.Contact.Email" class="btn btn-primary" role="button">Marketing</a> 
+                        <a href="mailto:@Model.Contact.Email" class="btn btn-default" role="button">Support</a>
+                    </p>
+            </div>
+        </div>
+    </div>
+</div>
