@@ -1,12 +1,14 @@
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using tinywebapp.Models;
 
 namespace tinywebapp.Services {
     public class TestContactRepository : IContactRepository
     {
-        public Contact GetContact(Id id)
+        public async Task<Contact> GetContact(Id id)
         {
-            return  new Contact {
+           return await Task.Run(() => new Contact
+                {
                     Gender = "male",
                     Name = new Name {
                         Title = "Mr.",
@@ -42,12 +44,13 @@ namespace tinywebapp.Services {
                         Thumbnail = "https://randomuser.me/api/portraits/thumb/men/83.jpg"
                     },
                     Nat = "SE",   
-                };
+                });
+
         }
 
-        public IEnumerable<Contact> GetContacts()
+        public async Task<IEnumerable<Contact>> GetContacts()
         {
-            return new List<Contact> {
+            return await Task.Run(() => new List<Contact> {
                 new Contact {
                     Gender = "male",
                     Name = new Name {
@@ -86,7 +89,8 @@ namespace tinywebapp.Services {
                     Nat = "SE",
                     
                 }
-            };
+            });
+
         }
     }
 }

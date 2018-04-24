@@ -23,7 +23,7 @@ namespace tinywebapp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            services.AddSingleton<IContactRepository, TestContactRepository>();
+            services.AddSingleton<IContactRepository, RandomUserRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
